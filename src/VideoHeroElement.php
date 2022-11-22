@@ -2,6 +2,7 @@
 
 namespace BiffBangPow\Element;
 
+use BiffBangPow\Extension\CallToActionExtension;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
@@ -25,6 +26,9 @@ class VideoHeroElement extends BaseElement
         'Title' => 'Varchar',
         'Content' => 'HTMLText',
         'BannerType' => 'Varchar'
+    ];
+    private static $extensions = [
+        CallToActionExtension::class
     ];
 
     public function getCMSFields()
