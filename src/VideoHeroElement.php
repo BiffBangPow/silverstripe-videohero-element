@@ -55,4 +55,9 @@ class VideoHeroElement extends BaseElement
     {
         return _t(__CLASS__ . '.BlockType', 'Hero / Video Banner (with content)');
     }
+
+    public function getSimpleClassName()
+    {
+        return 'bbp-video-hero';
+    }
 }
