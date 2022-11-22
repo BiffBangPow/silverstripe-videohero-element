@@ -1,10 +1,9 @@
-<div class="hero-container bg-cover $BannerType"
+<div class="hero-container bg-cover $BannerType position-relative"
     <% if $BannerType == 'image' %>
      style="background-image: url('<% if $Page.WebPSupport %>$HeroImage.ScaleMaxWidth(1920).Format('webp').Link')<% else %>$HeroImage.ScaleMaxWidth(1920).Link')<% end_if %>;"
     <% end_if %>
 >
-    <div class="hero-overlay"></div>
-    <div class="container content-holder">
+    <div class="container content-holder position-absolute">
         <div class="content">
             <% if $ShowTitle%>
                 <h1 class="title">$Title</h1>
@@ -12,23 +11,31 @@
             <% if $Content %>
                 $Content
             <% end_if %>
+            <% if $CTAType != 'None' %>
+                <div class="cta">
+                    <p>
+                        <a href="$CTALink" class="cta-link btn btn-secondary"
+                            <% if $CTAType == 'External' %>target="_blank" rel="noopener"
+                            <% else_if $CTAType == 'Download' %>download
+                            <% end_if %>>
+                            $LinkText
+                        </a>
+                    </p>
+                </div>
+            <% end_if %>
         </div>
     </div>
     <% if $BannerType == 'video' && $VideoFile %>
-        <video
+        <video class="w-100"
             <% if $HeroImage %>
-            poster="<% if $Page.WebPSupport %>
-                $HeroImage.ScaleMaxWidth(1920).Format('webp').URL
-            <% else %>
-                $HeroImage.ScaleMaxWidth(1920).URL
-            <% end_if %>"
+               poster="<% if $Page.WebPSupport %>
+                   $HeroImage.ScaleMaxWidth(1920).Format('webp').URL
+               <% else %>
+                   $HeroImage.ScaleMaxWidth(1920).URL
+               <% end_if %>"
             <% end_if %>
-            autoplay playsinline muted loop>
+               autoplay playsinline muted loop>
             <source src="$VideoFile.URL" type="$VideoFile.MimeType">
         </video>
     <% end_if %>
 </div>
-
-
-
-
