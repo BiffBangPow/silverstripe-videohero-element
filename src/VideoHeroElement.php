@@ -2,6 +2,7 @@
 
 namespace BiffBangPow\Element;
 
+use BiffBangPow\Element\Control\VideoHeroElementController;
 use BiffBangPow\Extension\CallToActionExtension;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -30,6 +31,7 @@ class VideoHeroElement extends BaseElement
     private static $extensions = [
         CallToActionExtension::class
     ];
+    private static $controller_class = VideoHeroElementController::class;
 
     public function getCMSFields()
     {
