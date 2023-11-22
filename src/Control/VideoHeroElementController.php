@@ -13,7 +13,7 @@ class VideoHeroElementController extends ElementController
         parent::init();
         $themeCSS = ThemeResourceLoader::inst()->findThemedCSS('client/dist/css/elements/videohero');
         if ($themeCSS) {
-            Requirements::css($themeCSS);
+            Requirements::css($themeCSS, '', ['inline' => true]);
         }
     }
 }
