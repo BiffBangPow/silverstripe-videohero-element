@@ -6,13 +6,13 @@
     <div class="container content-holder">
         <div class="content">
             <% if $ShowTitle%>
-                <h1 class="title">$Title</h1>
+                <h1 class="title mb-4">$Title</h1>
             <% end_if %>
             <% if $Content %>
                 $Content
             <% end_if %>
             <% if $CTAType != 'None' %>
-                <div class="cta">
+                <div class="cta my-4">
                     <p>
                         <a href="$CTALink" class="cta-link btn btn-primary"
                             <% if $CTAType == 'External' %>target="_blank" rel="noopener"
