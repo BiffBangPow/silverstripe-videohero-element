@@ -1,11 +1,9 @@
-<div
-        class="hero-container bg-cover $BannerType <% if $BannerType == 'video' %>position-relative<% else %>hero d-flex align-items-center py-4 py-lg-7 text-center bg-cover<% end_if %>"
+<div class="hero-container <% if $BannerType == 'video' %>video-hero<% else %>image-hero<% end_if %>"
     <% if $BannerType == 'image' %>
-        style="background-image: url('<% if $Page.WebPSupport %>$HeroImage.ScaleMaxWidth(1920).Format('webp').Link')<% else %>$HeroImage.ScaleMaxWidth(1920).Link')<% end_if %>;"
+     style="background-image: url('<% if $Page.WebPSupport %>$HeroImage.ScaleMaxWidth(1920).Format('webp').Link')<% else %>$HeroImage.ScaleMaxWidth(1920).Link')<% end_if %>;"
     <% end_if %>
 >
-    <div
-            class="container content-holder <% if $BannerType == 'video' %>position-absolute top-50 start-50 translate-middle<% end_if %>">
+    <div class="container content-holder">
         <div class="content">
             <% if $ShowTitle%>
                 <h1 class="title">$Title</h1>
@@ -16,7 +14,7 @@
             <% if $CTAType != 'None' %>
                 <div class="cta">
                     <p>
-                        <a href="$CTALink" class="cta-link btn btn-secondary"
+                        <a href="$CTALink" class="cta-link btn btn-primary"
                             <% if $CTAType == 'External' %>target="_blank" rel="noopener"
                             <% else_if $CTAType == 'Download' %>download
                             <% end_if %>>
