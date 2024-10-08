@@ -1,6 +1,6 @@
 <div class="hero-container <% if $BannerType == 'video' %>video-hero<% else %>image-hero<% end_if %>"
     <% if $BannerType == 'image' %>
-     style="background-image: url('<% if $Page.WebPSupport %>$HeroImage.ScaleMaxWidth(1920).Format('webp').Link')<% else %>$HeroImage.ScaleMaxWidth(1920).Link')<% end_if %>;"
+     style="background-image: url('$HeroImage.ScaleMaxWidth(1920).Format('webp').Link');"
     <% end_if %>
 >
     <div class="container content-holder">
@@ -28,11 +28,7 @@
     <% if $BannerType == 'video' && $VideoFile %>
         <video class="w-100"
             <% if $HeroImage %>
-               poster="<% if $Page.WebPSupport %>
-                   $HeroImage.ScaleMaxWidth(1920).Format('webp').URL
-               <% else %>
-                   $HeroImage.ScaleMaxWidth(1920).URL
-               <% end_if %>"
+               poster="$HeroImage.ScaleMaxWidth(1920).Format('webp').URL"
             <% end_if %>
                autoplay playsinline muted loop>
             <source src="$VideoFile.URL" type="$VideoFile.MimeType">
